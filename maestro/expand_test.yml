@@ -66,3 +66,12 @@ appId: "com.davidsugden.LinguaConnect"
 
 - tapOn: "Home, tab, 1 of 3"
 - assertVisible: "LinguaConnect"
+
+- tapOn:
+    id: "profileImage"
+- tapOn:
+    id: "PXGGridLayout-Info"
+    index: 0
+- tapOn: "Choose"
+- assertVisible: "Profile image updated successfully!"
+- tapOn: "OK"
