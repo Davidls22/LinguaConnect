@@ -1,0 +1,19 @@
+appId: "com.davidsugden.LinguaConnect"
+---
+- launchApp
+
+- assertVisible: "LinguaConnect"
+- assertVisible: "Progress"
+- assertVisible: "Friend Feed"
+- assertVisible: "Loading..."
+
+- assertVisible:
+    id: "profileImage"
+
+- tapOn:
+    id: "feedButton"
+- assertVisible: "Friend Feed"
+
+- tapOn:
+    text: "close-circle-outline"
+- assertNotVisible: "Friend Feed"

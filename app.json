@@ -9,7 +9,8 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.davidsugden.LinguaConnect"
     },
     "android": {
       "adaptiveIcon": {
@@ -40,7 +41,14 @@
     "extra": {
       "expo-router": {
         "appRoot": "./app"
+      },
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "54ed2c5a-7962-4f30-a3c1-3d91026552e0"
       }
-    }
+    },
+    "owner": "davidsugden"
   }
 }

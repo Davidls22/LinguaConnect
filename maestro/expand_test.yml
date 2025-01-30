@@ -1,0 +1,68 @@
+appId: "com.davidsugden.LinguaConnect"
+---
+- launchApp
+
+- assertVisible: "LinguaConnect"
+- assertVisible: "Email"
+- assertVisible: "Password"
+
+- tapOn: "Don't have an account? Register"
+
+- tapOn:
+    id: "registerEmailInput"
+- inputText:
+    id: "registerEmailInput"
+    text: "testuser+random@mail.com"
+- assertVisible: "testuser+random@mail.com"
+
+- tapOn:
+    id: "registerUsernameInput"
+- inputText:
+    id: "registerUsernameInput"
+    text: "testuser"
+- assertVisible: "testuser"
+
+- tapOn:
+    id: "registerPasswordInput"
+- inputText:
+    id: "registerPasswordInput"
+    text: "securePassword123"
+
+- tapOn:
+    id: "registerButton"
+
+- waitForAnimationToEnd
+
+- assertVisible: "LinguaConnect"
+- tapOn:
+    id: "languageSelectorButton"
+- assertVisible:
+    id: "languageSelectorModal"
+- tapOn:
+    id: "languageOption_french" 
+- assertNotVisible:
+    id: "languageSelectorModal"
+
+- tapOn:
+    id: "feedButton"
+- assertVisible:
+    id: "friendFeedContainer"
+
+- tapOn:
+    id: "closeButton"
+- assertNotVisible:
+    id: "friendFeedContainer"
+
+- tapOn: "Home, tab, 1 of 3"
+- assertVisible: "LinguaConnect"
+
+- tapOn: "Lessons, tab, 2 of 3"
+- assertVisible: "Available Lessons"
+- tapOn: "Start"
+- tapOn: "Mark Complete"
+
+- tapOn: "Leaderboard, tab, 3 of 3"
+- assertVisible: "Leaderboard"
+
+- tapOn: "Home, tab, 1 of 3"
+- assertVisible: "LinguaConnect"

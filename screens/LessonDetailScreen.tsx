@@ -49,6 +49,8 @@ export default function LessonDetailScreen() {
           body: JSON.stringify({
             lessonId: lesson._id,
             completed: true,
+            timestamp: new Date().toISOString(), 
+            languageId: lesson.languageId || user.currentLanguageId, 
           }),
         }
       );

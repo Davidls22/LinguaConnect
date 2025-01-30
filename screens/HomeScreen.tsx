@@ -82,7 +82,7 @@ export default function HomeScreen() {
     <Box flex={1} p={4} pt={10} bg="$darkBlue800">
       {/* Profile Image in Top Right */}
       <Box position="absolute" top={60} right={20}>
-        <ImagePickerComponent currentImage={progress?.profileImage} />
+        <ImagePickerComponent currentImage={progress?.profileImage} testID="profileImage" accessibilityLabel="profileImage"/>
       </Box>
 
       <VStack space={6} alignItems="center" mt={50}>
@@ -106,7 +106,7 @@ export default function HomeScreen() {
         {/* Progress Card */}
         <Box w="100%" alignItems="center">
           <ProgressCard progress={progress} />
-        </Box>
+        </Box> 
 
         {/* Divider and Feed Button */}
         <Box w="100%" alignItems="center">
@@ -115,7 +115,7 @@ export default function HomeScreen() {
             bg="$rose500"
             style={{ width: "90%", marginVertical: 10, marginTop: 40 }}
           />
-          <Pressable onPress={openFeed}>
+          <Pressable onPress={openFeed} testID="feedButton">
             <Box
               width={60}
               height={60}
@@ -133,7 +133,7 @@ export default function HomeScreen() {
 
       {/* Sliding Feed */}
       {isFeedVisible && (
-        <TouchableWithoutFeedback onPress={closeFeed}>
+        <TouchableWithoutFeedback onPress={closeFeed} testID="closeButton">
           <Animated.View
             style={{
               position: "absolute",
@@ -160,6 +160,7 @@ export default function HomeScreen() {
                 mt={80}
                 bg="$darkBlue800"
                 px={4} 
+                testID="friendFeedContainer"
               >
                 {/* Friend Feed Title */}
                 <Text

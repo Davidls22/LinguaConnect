@@ -47,7 +47,7 @@ export default function LanguageSelectorModal({
 
   return (
     <Modal isOpen={isVisible} onClose={onClose}>
-      <Modal.Content bg="rgba(0, 0, 0, 0.7)">
+      <Modal.Content bg="rgba(0, 0, 0, 0.7)" testID="languageSelectorModal">
         <Modal.Body>
           <Box flex={1}>
             <FlatList
@@ -58,7 +58,7 @@ export default function LanguageSelectorModal({
                 justifyContent: "space-evenly",
               }}
               renderItem={({ item }) => (
-                <Pressable onPress={() => handleSelect(item._id)}>
+                <Pressable onPress={() => handleSelect(item._id)} testID={`languageOption_${item.name.toLowerCase()}`}>
                   <Box
                     bg={
                       currentSelected === item._id ? "$primary100" : "$backgroundLight100"
