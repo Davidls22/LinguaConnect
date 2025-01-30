@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Image, Alert, Pressable } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import { Ionicons } from "@expo/vector-icons";
 import { Box, VStack, Icon } from "@gluestack-ui/themed";
-import { updateUser } from "@/contexts/AuthContext"; 
+import { AuthContext } from "@/contexts/AuthContext";
 import { updateUserProfileImage } from "@/services/userService";
 
-export default function ImagePickerComponent({ currentImage }) {
+export default function ImagePickerComponent({ currentImage, user }) {
   const [imageUri, setImageUri] = useState(currentImage || null);
+  const { updateUser } = useContext(AuthContext);
 
   const handleImagePicker = async () => {
     console.log("Opening image picker...");
@@ -37,7 +38,7 @@ export default function ImagePickerComponent({ currentImage }) {
 
       try {
         console.log("Uploading image...");
-        const response = await updateUserProfileImage(selectedImage);
+        const response = await updateUserProfileImage(selectedImage, user.token);
         console.log("Image uploaded successfully:", response);
         updateUser({ profileImage: response.imageUrl });
         Alert.alert("Success", "Profile image updated successfully!");
@@ -52,7 +53,7 @@ export default function ImagePickerComponent({ currentImage }) {
 
   return (
     <VStack alignItems="center" space={4}>
-      <Pressable onPress={handleImagePicker}>
+      <Pressable onPress={handleImagePicker} testID="profileImage">
         <Box
           width={60}
           height={60}

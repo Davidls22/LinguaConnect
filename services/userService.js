@@ -47,9 +47,11 @@ export const getLeaderboard = async () => {
   }
 };
 
-export const updateUserProfileImage = async (imageUri: string) => {
+export const updateUserProfileImage = async (imageUri: string, token: string) => {
   try {
-    const response = await api.post('/users/profile-image', { imageUri });
+    const response = await api.patch('/users/profile-image', { imageUri }, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
     return response.data;
   } catch (error) {
     console.error('Error updating profile image:', error.response?.data || error.message);

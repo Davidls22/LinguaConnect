@@ -82,7 +82,7 @@ export default function HomeScreen() {
     <Box flex={1} p={4} pt={10} bg="$darkBlue800">
       {/* Profile Image in Top Right */}
       <Box position="absolute" top={60} right={20}>
-        <ImagePickerComponent currentImage={progress?.profileImage} testID="profileImage" accessibilityLabel="profileImage"/>
+        <ImagePickerComponent currentImage={progress?.profileImage} user={user}/>
       </Box>
 
       <VStack space={6} alignItems="center" mt={50}>
